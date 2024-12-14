@@ -23,9 +23,9 @@ object Configs {
 
     object Artifact {
         const val GROUP_ID = "vn.finance.libs"
-        const val ARTIFACT_PRESENTATION_ID = "setting-presentation"
-        const val ARTIFACT_BUSINESS_ID = "setting-business"
-        const val ARTIFACT_API_ID = "setting-api"
+        const val ARTIFACT_PRESENTATION_ID = "feature-setting-presentation"
+        const val ARTIFACT_BUSINESS_ID = "feature-setting-business"
+        const val ARTIFACT_API_ID = "feature-setting-api"
         const val VERSION = "1.0.0"
     }
 }
