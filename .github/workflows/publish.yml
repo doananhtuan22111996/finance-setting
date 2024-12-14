@@ -1,0 +1,44 @@
+name: Publish
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Publishing Artifact
+    runs-on: ubuntu-latest
+    env:
+      GH_USERNAME: ${{ secrets.GH_USERNAME }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_REPO_NAME: ${{ secrets.GH_REPO_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Publish Artifact Presentation
+        run: ./gradlew :feature:presentation:publishFeature-presentationPublicationToPackagesRepository
+        continue-on-error: true
+
+      - name: Publish Artifact Business
+        run: ./gradlew :feature:business:publishFeature-businessPublicationToPackagesRepository
+        continue-on-error: true
+
+      - name: Publish Artifact Api
+        run: ./gradlew :featureApi:publishFeature-apiPublicationToPackagesRepository
+        continue-on-error: true
+
+      - name: Sending report to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: 🚀 Group com.feature.template new release published on Github Packages!
