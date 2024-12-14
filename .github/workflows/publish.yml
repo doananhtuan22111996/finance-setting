@@ -25,15 +25,15 @@ jobs:
         run: chmod +x gradlew
 
       - name: Publish Artifact Presentation
-        run: ./gradlew :feature:presentation:publishSetting-presentationPublicationToPackagesRepository
+        run: ./gradlew :feature:presentation:publishFeature-setting-presentationPublicationToPackagesRepository
         continue-on-error: true
 
       - name: Publish Artifact Business
-        run: ./gradlew :feature:business:publishSetting-businessPublicationToPackagesRepository
+        run: ./gradlew :feature:business:publishFeature-setting-businessPublicationToPackagesRepository
         continue-on-error: true
 
       - name: Publish Artifact Api
-        run: ./gradlew :featureApi:publishSetting-apiPublicationToPackagesRepository
+        run: ./gradlew :featureApi:publishFeature-setting-apiPublicationToPackagesRepository
         continue-on-error: true
 
       - name: Sending report to Telegram
