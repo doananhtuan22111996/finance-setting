@@ -6,9 +6,6 @@ import vn.core.usecase.BaseUseCase
 import vn.finance.business.domain.repository.PopUpNotificationRepository
 import javax.inject.Inject
 
-class PutPopUpNotificationEnabledUseCase @Inject constructor(private val repository: PopUpNotificationRepository) :
-    BaseUseCase<Boolean, ResultModel<Nothing>>() {
-    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> {
-        return repository.putPopUpNotificationEnabled(value = params[0] ?: false)
-    }
+class PutPopUpNotificationEnabledUseCase @Inject constructor(private val repository: PopUpNotificationRepository) : BaseUseCase<Boolean, ResultModel<Nothing>>() {
+    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> = repository.putPopUpNotificationEnabled(value = params[0] ?: false)
 }

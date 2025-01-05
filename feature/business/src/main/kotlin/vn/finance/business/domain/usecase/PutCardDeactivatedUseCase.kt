@@ -6,9 +6,6 @@ import vn.core.usecase.BaseUseCase
 import vn.finance.business.domain.repository.CardDeactivatedRepository
 import javax.inject.Inject
 
-class PutCardDeactivatedUseCase @Inject constructor(private val repository: CardDeactivatedRepository) :
-    BaseUseCase<Boolean, ResultModel<Nothing>>() {
-    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> {
-        return repository.putCardDeactivated(value = params[0] ?: false)
-    }
+class PutCardDeactivatedUseCase @Inject constructor(private val repository: CardDeactivatedRepository) : BaseUseCase<Boolean, ResultModel<Nothing>>() {
+    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> = repository.putCardDeactivated(value = params[0] ?: false)
 }

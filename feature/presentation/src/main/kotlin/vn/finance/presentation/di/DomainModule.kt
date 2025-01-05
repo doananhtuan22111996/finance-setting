@@ -24,41 +24,33 @@ class DomainModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetCardLockedUseCase(repository: CardLockedRepository): GetCardLockedUseCase =
-        GetCardLockedUseCase(repository = repository)
+    fun provideGetCardLockedUseCase(repository: CardLockedRepository): GetCardLockedUseCase = GetCardLockedUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun provideGetCardDeactivatedUseCase(repository: CardDeactivatedRepository): GetCardDeactivatedUseCase =
-        GetCardDeactivatedUseCase(repository = repository)
+    fun provideGetCardDeactivatedUseCase(repository: CardDeactivatedRepository): GetCardDeactivatedUseCase = GetCardDeactivatedUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun provideGetPopUpNotificationEnabledUseCase(repository: PopUpNotificationRepository): GetPopUpNotificationEnabledUseCase =
-        GetPopUpNotificationEnabledUseCase(repository = repository)
+    fun provideGetPopUpNotificationEnabledUseCase(repository: PopUpNotificationRepository): GetPopUpNotificationEnabledUseCase = GetPopUpNotificationEnabledUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun providePutCardLockedUseCase(repository: CardLockedRepository): PutCardLockedUseCase =
-        PutCardLockedUseCase(repository = repository)
+    fun providePutCardLockedUseCase(repository: CardLockedRepository): PutCardLockedUseCase = PutCardLockedUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun providePutCardDeactivatedUseCase(repository: CardDeactivatedRepository): PutCardDeactivatedUseCase =
-        PutCardDeactivatedUseCase(repository = repository)
+    fun providePutCardDeactivatedUseCase(repository: CardDeactivatedRepository): PutCardDeactivatedUseCase = PutCardDeactivatedUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun providePutPopUpNotificationEnabledUseCase(repository: PopUpNotificationRepository): PutPopUpNotificationEnabledUseCase =
-        PutPopUpNotificationEnabledUseCase(repository = repository)
+    fun providePutPopUpNotificationEnabledUseCase(repository: PopUpNotificationRepository): PutPopUpNotificationEnabledUseCase = PutPopUpNotificationEnabledUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun provideGetDarkModeEnabledUseCase(repository: ThemeRepository): GetDarkModeEnabledUseCase =
-        GetDarkModeEnabledUseCase(repository = repository)
+    fun provideGetDarkModeEnabledUseCase(repository: ThemeRepository): GetDarkModeEnabledUseCase = GetDarkModeEnabledUseCase(repository = repository)
 
     @Provides
     @ViewModelScoped
-    fun providePutDarkModeEnabledUseCase(repository: ThemeRepository): PutDarkModeEnabledUseCase =
-        PutDarkModeEnabledUseCase(repository = repository)
+    fun providePutDarkModeEnabledUseCase(repository: ThemeRepository): PutDarkModeEnabledUseCase = PutDarkModeEnabledUseCase(repository = repository)
 }

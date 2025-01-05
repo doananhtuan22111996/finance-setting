@@ -49,57 +49,66 @@ fun SettingPage(goBack: () -> Unit, onDarkModeChanged: (Boolean) -> Unit) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp),
         ) {
             Text(
                 stringResource(R.string.card_settings),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                    color = MaterialTheme.colorScheme.onSurface,
+                ),
             )
             Box(modifier = Modifier.height(16.dp))
-            SettingComponent(icon = Icons.Filled.Lock,
+            SettingComponent(
+                icon = Icons.Filled.Lock,
                 label = stringResource(R.string.lock_card),
                 isChecked = isLocked,
                 onSwitchAction = { value ->
                     viewModel.onLockChanged(value)
-                })
+                },
+            )
             Box(modifier = Modifier.padding(vertical = 16.dp)) {
-                SettingComponent(icon = Icons.Filled.CreditCard,
+                SettingComponent(
+                    icon = Icons.Filled.CreditCard,
                     label = stringResource(R.string.deactivate_card),
                     isChecked = isDeactivated,
                     onSwitchAction = { value ->
                         viewModel.onDeactivateChanged(value)
-                    })
+                    },
+                )
             }
             Box(modifier = Modifier.height(16.dp))
             Text(
                 stringResource(R.string.notification),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                    color = MaterialTheme.colorScheme.onSurface,
+                ),
             )
             Box(modifier = Modifier.padding(vertical = 16.dp)) {
-                SettingComponent(icon = Icons.Filled.Notifications,
+                SettingComponent(
+                    icon = Icons.Filled.Notifications,
                     label = stringResource(R.string.pop_up_notifications),
                     isChecked = isNotifications,
                     onSwitchAction = { value ->
                         viewModel.onNotificationsChanged(value)
-                    })
+                    },
+                )
             }
             Box(modifier = Modifier.height(16.dp))
             Text(
-                stringResource(R.string.theme), style = MaterialTheme.typography.titleMedium.copy(
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                stringResource(R.string.theme),
+                style = MaterialTheme.typography.titleMedium.copy(
+                    color = MaterialTheme.colorScheme.onSurface,
+                ),
             )
             Box(modifier = Modifier.padding(vertical = 16.dp)) {
-                SettingComponent(icon = Icons.Filled.DarkMode,
+                SettingComponent(
+                    icon = Icons.Filled.DarkMode,
                     label = stringResource(R.string.dark_mode),
                     isChecked = isDarkMode,
                     onSwitchAction = { value ->
                         viewModel.onDarkModeChanged(value)
-                    })
+                    },
+                )
             }
         }
 
@@ -112,7 +121,8 @@ fun SettingPage(goBack: () -> Unit, onDarkModeChanged: (Boolean) -> Unit) {
                 message = appException?.message ?: EMPTY_STRING,
                 onDismissRequest = {
                     viewModel.onDismissAppException()
-                })
+                },
+            )
         }
     }
 }

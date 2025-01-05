@@ -6,9 +6,6 @@ import vn.core.usecase.BaseUseCase
 import vn.finance.business.domain.repository.CardLockedRepository
 import javax.inject.Inject
 
-class PutCardLockedUseCase @Inject constructor(private val repository: CardLockedRepository) :
-    BaseUseCase<Boolean, ResultModel<Nothing>>() {
-    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> {
-        return repository.putCardLocked(value = params[0] ?: false)
-    }
+class PutCardLockedUseCase @Inject constructor(private val repository: CardLockedRepository) : BaseUseCase<Boolean, ResultModel<Nothing>>() {
+    override fun execute(vararg params: Boolean?): Flow<ResultModel<Nothing>> = repository.putCardLocked(value = params[0] ?: false)
 }
