@@ -19,23 +19,29 @@ import vn.finance.setting.presentation.R
 
 @Composable
 fun SettingComponent(
-    icon: ImageVector, label: String, isChecked: Boolean, onSwitchAction: (value: Boolean) -> Unit
+    icon: ImageVector,
+    label: String,
+    isChecked: Boolean,
+    onSwitchAction: (value: Boolean) -> Unit,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
     ) {
         Row(modifier = Modifier.padding(4.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(icon, contentDescription = stringResource(R.string.setting_component))
             Text(
-                label, modifier = Modifier
+                label,
+                modifier = Modifier
                     .weight(1f)
-                    .padding(horizontal = 8.dp)
+                    .padding(horizontal = 8.dp),
             )
-            Switch(checked = isChecked,
+            Switch(
+                checked = isChecked,
                 enabled = true,
-                onCheckedChange = { value -> onSwitchAction.invoke(value) })
+                onCheckedChange = { value -> onSwitchAction.invoke(value) },
+            )
         }
     }
 }

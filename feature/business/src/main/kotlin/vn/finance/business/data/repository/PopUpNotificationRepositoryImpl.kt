@@ -10,8 +10,7 @@ import vn.finance.business.data.di.SettingPreferenceWrapper
 import vn.finance.business.domain.repository.PopUpNotificationRepository
 import javax.inject.Inject
 
-class PopUpNotificationRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) :
-    PopUpNotificationRepository {
+class PopUpNotificationRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) : PopUpNotificationRepository {
     override fun getPopUpNotificationEnabled(): Flow<ResultModel<Boolean>> = flow {
         try {
             val result = preferenceWrapper.getBoolean(KEY_POP_UP_NOTIFICATION_ENABLED, false)

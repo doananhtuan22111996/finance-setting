@@ -81,6 +81,7 @@ class SettingViewModel @Inject constructor(
                     is ResultModel.Success -> _isDeactivated.emit(value)
 
                     is ResultModel.AppException -> _appException.emit(it)
+
                     else -> {
                         // Do nothing
                     }
@@ -94,7 +95,9 @@ class SettingViewModel @Inject constructor(
             putPopUpNotificationEnabledUseCase.execute(params = arrayOf(value)).collect {
                 when (it) {
                     is ResultModel.Success -> _isNotifications.emit(value)
+
                     is ResultModel.AppException -> _appException.emit(it)
+
                     else -> {
                         // Do nothing
                     }
@@ -112,6 +115,7 @@ class SettingViewModel @Inject constructor(
                     }
 
                     is ResultModel.AppException -> _appException.emit(it)
+
                     else -> {
                         // Do nothing
                     }
@@ -138,7 +142,7 @@ class SettingViewModel @Inject constructor(
                     locked = locked,
                     deactivated = deactivated,
                     popupNotification = popupNotification,
-                    darkMode = darkMode
+                    darkMode = darkMode,
                 )
             }.onStart { _isLoading.emit(true) }.onCompletion { _isLoading.emit(false) }
                 .collect { model ->
@@ -159,7 +163,7 @@ class SettingViewModel @Inject constructor(
                             (model.locked as? ResultModel.AppException)
                                 ?: (model.deactivated as? ResultModel.AppException)
                                 ?: (model.popupNotification as? ResultModel.AppException)
-                                ?: (model.darkMode as ResultModel.AppException)
+                                ?: (model.darkMode as ResultModel.AppException),
                         )
                     }
                 }
@@ -170,6 +174,6 @@ class SettingViewModel @Inject constructor(
         val locked: ResultModel<Boolean>,
         val deactivated: ResultModel<Boolean>,
         val popupNotification: ResultModel<Boolean>,
-        val darkMode: ResultModel<Boolean>
+        val darkMode: ResultModel<Boolean>,
     )
 }

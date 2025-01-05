@@ -8,11 +8,9 @@ import vn.core.domain.TypeException
 import vn.finance.business.PreferenceKeys.KEY_CARD_LOCKED
 import vn.finance.business.data.di.SettingPreferenceWrapper
 import vn.finance.business.domain.repository.CardLockedRepository
-import java.io.Serializable
 import javax.inject.Inject
 
-class CardLockedRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) :
-    CardLockedRepository {
+class CardLockedRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) : CardLockedRepository {
     override fun getCardLocked(): Flow<ResultModel<Boolean>> = flow {
         try {
             val result = preferenceWrapper.getBoolean(KEY_CARD_LOCKED, false)

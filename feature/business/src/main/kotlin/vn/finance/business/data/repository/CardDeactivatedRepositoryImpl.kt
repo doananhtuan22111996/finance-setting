@@ -10,8 +10,7 @@ import vn.finance.business.data.di.SettingPreferenceWrapper
 import vn.finance.business.domain.repository.CardDeactivatedRepository
 import javax.inject.Inject
 
-class CardDeactivatedRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) :
-    CardDeactivatedRepository {
+class CardDeactivatedRepositoryImpl @Inject constructor(@SettingPreferenceWrapper private val preferenceWrapper: PreferenceWrapper) : CardDeactivatedRepository {
     override fun getCardDeactivated(): Flow<ResultModel<Boolean>> = flow {
         try {
             val result = preferenceWrapper.getBoolean(KEY_CARD_DEACTIVATED, false)
@@ -29,5 +28,4 @@ class CardDeactivatedRepositoryImpl @Inject constructor(@SettingPreferenceWrappe
             emit(ResultModel.AppException(message = e.message, type = TypeException.Local))
         }
     }
-
 }
